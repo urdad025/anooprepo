@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="anooppandey.TestComponents.Listeners"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Error Validation  Test(failed)">
+    <classes>
+      <class name="anooppandey.tests.ErrorValidationsTest">
+        <methods>
+          <include name="productErrorValidation" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="launchApplication"/>
+          <include name="loginErrorValidation" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- anooppandey.tests.ErrorValidationsTest -->
+    </classes>
+  </test> <!-- Error Validation  Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

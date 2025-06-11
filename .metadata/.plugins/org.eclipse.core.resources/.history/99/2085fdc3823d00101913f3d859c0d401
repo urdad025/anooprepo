@@ -1,0 +1,56 @@
+package anooppandey.tests;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import anooppandey.TestComponents.BaseTest;
+//import anooppandey.TestComponents.Retry;
+import anooppandey.pageobjects.MyCart;
+import anooppandey.pageobjects.ProductCatalouge;
+import anooppandey.resources.ReadGDProperties;
+
+public class ErrorValidationsTest extends BaseTest {
+
+	@Test //, retryAnalyzer=Retry.class
+	public void loginErrorValidation() throws InterruptedException, IOException {
+
+		landingPage.loginApplication("jackreacher009@gmail.com", "Jack@12345");
+		Assert.assertEquals(landingPage.getErrorMessage().trim(), "Incorrect email or password.");
+
+	}
+
+	@Test(groups= {"ErrorHandling"}, dataProvider = "getData")
+	public void productErrorValidation(HashMap<String, String> input) throws InterruptedException, IOException {
+
+		//String productName = "ZARA COAT 3";
+		
+		String productName = ReadGDProperties.getProperties().getProperty("productMatch");
+
+		ProductCatalouge productCatalouge = landingPage.loginApplication("jackreacher007@gmail.com", "Jack@1234");
+		productCatalouge.addProductToCart(productName);
+		MyCart myCart = productCatalouge.goToCart();
+		
+		
+
+		Boolean match = myCart.prodMatchIncart(productName);  // -- need from property file
+		Assert.assertTrue(match);
+
+	}
+	
+	
+	@DataProvider
+	public Object[][] getData() throws IOException {
+
+		List<HashMap<String, String>> data = getJsonDataMap(
+				System.getProperty("user.dir") + "//src//test//java//anooppandey//data//PurchaseOrder.json");
+
+		return new Object[][] { { data.get(0) },{ data.get(1)} };
+	}
+	
+
+}

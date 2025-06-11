@@ -1,0 +1,14 @@
+package org.sample.excelDataProvider;
+
+import org.testng.annotations.DataProvider;
+
+public class dataProvide {
+	
+	
+	
+	@DataProvider
+	public void getData() {
+		
+	}
+
+}

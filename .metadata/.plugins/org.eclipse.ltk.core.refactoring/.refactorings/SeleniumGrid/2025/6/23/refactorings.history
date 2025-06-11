@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;anoopgrid.Googletest&apos; to &apos;GoogleTest&apos;&#x0A;- Original project: &apos;SeleniumGrid&apos;&#x0A;- Original element: &apos;anoopgrid.Googletest&apos;&#x0A;- Renamed element: &apos;anoopgrid.GoogleTest&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Googletest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;anoopgrid{Googletest.java[Googletest" matchStrategy="1" name="GoogleTest" qualified="false" references="true" similarDeclarations="false" stamp="1749057683873" textual="false" version="1.0"/>
+</session>

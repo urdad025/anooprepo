@@ -1,0 +1,36 @@
+package javaOOS;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class ArraListClass {
+
+	public static void main(String[] args) {
+	
+		String[] arr = { "mango", "Cherry", "Grapes" };
+		ArrayList<String> list = new ArrayList<>(Arrays.asList(arr));
+		list.add("papaya");
+		for (String a : list) {
+			System.out.println(a);
+		}
+		int[] num = { 6, 7, 3, 1, 2, 3, 4, 5 };
+		ArrayList<Integer> list1 = new ArrayList<>(Arrays.stream(num).boxed().toList());
+		int index = 0;
+		for (Integer x : list1) {
+			System.out.println("Index: " + index + ", Value: " + x);
+			index++;
+		}
+		System.out.println(list1.stream().limit(2).toList());
+	}
+
+
+public void hasSetmethod() {
+	
+	int[] num = { 6, 7, 3, 1, 2, 3, 4, 5 };
+	
+	HashSet<Integer> has = new HashSet<>(Arrays.stream(num).boxed().toList());
+	
+	System.out.println(has);
+}
+}

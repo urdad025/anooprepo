@@ -1,0 +1,19 @@
+package javaOOS;
+
+import java.util.ArrayList;
+
+public class ArraListClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayList<String> a= new ArrayList<String>();
+		
+		a.add("Apple");
+		a.add("banana");
+		a.add("cherry");
+		System.out.println(a);
+		
+	}
+
+}

@@ -1,0 +1,27 @@
+package anooppandey.data;
+
+import java.io.File;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+
+import org.apache.commons.io.FileUtils;
+
+public class DataReader {
+
+	public void getJsonDataMap() throws IOException {
+
+		// read json to String
+		// FileUtils.readFileToString(new
+		// File(System.getProperty("user.dir")+"//src//main//java//anooppandey//data//PurchaseOrder.json"));
+
+		String jsonContent = FileUtils.readFileToString(
+				new File(System.getProperty("user.dir") + "/src/main/java/anooppandey/data/PurchaseOrder.json"),
+				StandardCharsets.UTF_8);
+		
+		
+
+	}
+
+}

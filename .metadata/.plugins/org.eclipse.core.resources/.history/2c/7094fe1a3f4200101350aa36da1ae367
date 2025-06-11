@@ -1,0 +1,24 @@
+package org.sample.apachepoi;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ExcelDataApachePOI {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		
+		FileInputStream fis= new FileInputStream("/Users/dou6339/Documents/ExcelDataSelenium/ApachePOI.xlsx");
+		
+		XSSFWorkbook workbook = new XSSFWorkbook();
+		
+		
+		
+		
+		
+
+	}
+
+}

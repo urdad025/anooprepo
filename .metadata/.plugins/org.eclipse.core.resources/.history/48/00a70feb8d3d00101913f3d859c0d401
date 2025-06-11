@@ -1,0 +1,30 @@
+package javaOOS;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ValidPalindrome {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<String> str = new ArrayList<String>();
+		str.add("A man, a plan, a canal");
+		str.add("race a car");
+		str.add("");
+
+		str.stream().filter(a -> a.equals(a)).forEach(x -> System.out.println(x));
+
+	}
+
+	public static String isPalindrome(String abc) {
+		
+		abc.replaceAll("[^a-zA-Z]", "");
+
+		String x = new StringBuilder(abc).reverse().toString();
+
+		return x.toLowerCase();
+
+	}
+
+}

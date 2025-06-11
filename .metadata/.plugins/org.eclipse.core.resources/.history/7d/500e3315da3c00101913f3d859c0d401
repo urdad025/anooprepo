@@ -1,0 +1,10 @@
+package anooppandey.resources;
+
+public class ReadGDProperties {
+	
+	public void getProperties() {
+		
+		
+	}
+
+}

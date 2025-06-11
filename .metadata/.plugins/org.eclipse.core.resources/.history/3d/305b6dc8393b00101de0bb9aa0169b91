@@ -1,0 +1,73 @@
+package anooppandey.tests;
+
+import java.io.IOException;
+import java.util.HashMap;
+
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import anooppandey.TestComponents.BastTest;
+import anooppandey.pageobjects.CheckOutPage;
+import anooppandey.pageobjects.ConfirmationPage;
+import anooppandey.pageobjects.MyCart;
+import anooppandey.pageobjects.OrderHistory;
+import anooppandey.pageobjects.ProductCatalouge;
+
+public class SubmitOrderTest extends BastTest {
+
+	// String productName = "ZARA COAT 3";
+
+	@Test(dataProvider = "getData", groups = "Purchase")
+	public void submitOrder(HashMap<String, String> input) throws InterruptedException, IOException {
+
+		//String countryName = "India";
+
+		ProductCatalouge productCatalouge = landingPage.loginApplication(input.get("email"),input.get("password"));
+		input.get(productCatalouge)
+		productCatalouge.addProductToCart(input.get("productName"));
+		
+		
+		MyCart myCart = productCatalouge.goToCart();
+
+		Boolean match = myCart.prodMatchIncart(input.get("productName"));
+		Assert.assertTrue(match);
+
+		CheckOutPage checkOutPage = myCart.goToCheckout();
+
+		checkOutPage.selectCountry(input.get("countryName"));
+		ConfirmationPage confirmationPage = checkOutPage.submitOrder();
+
+		String confirmMsg = confirmationPage.getMessage();
+
+		System.out.println(confirmMsg);
+		AssertJUnit.assertTrue(confirmMsg.equalsIgnoreCase("Thankyou for the order."));
+
+	}
+
+	@DataProvider
+	public Object[][] getData() {
+
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("email", "jackreacher007@gmail.com");
+		map.put("password", "Jack@1234");
+		map.put("productName", "ZARA COAT 3");
+		map.put("countryName", "India");
+
+		return new Object[][] { { map }, { "yodaso7633@frisbook.com", "Test@1122", "ADIDAS ORIGINAL" } };
+
+	}
+
+	@Test(dependsOnMethods = { "submitOrder" })
+	public void orderHistorytest(String email, String password, String productName) {
+
+		ProductCatalouge productCatalouge = landingPage.loginApplication("jackreacher007@gmail.com", "Jack@1234");
+
+		OrderHistory orderHistory = productCatalouge.goToOrderHistory();
+		Boolean match = orderHistory.verifyPlacedorder(productName);
+		Assert.assertTrue(match);
+
+	}
+
+}

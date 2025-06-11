@@ -1,0 +1,23 @@
+package anooppandey.tests;
+
+import java.io.IOException;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import anooppandey.TestComponents.BastTest;
+
+
+public class ErrorValidations extends BastTest{
+	
+	@Test
+	public void submitOrder() throws InterruptedException, IOException {
+
+		
+
+		landingPage.loginApplication("jackreacher009@gmail.com", "Jack@12345");
+		Assert.assertEquals(landingPage.getErrorMessage(), "Incorrect email or passwords.");
+
+	
+	}
+}

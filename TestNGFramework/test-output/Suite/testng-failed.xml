@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="classes" name="Test(failed)">
+    <classes>
+      <class name="test.GoogleTest">
+        <methods>
+          <include name="homePageClick"/>
+        </methods>
+      </class> <!-- test.GoogleTest -->
+      <class name="test.GoogleVirat">
+        <methods>
+          <include name="homePageClick"/>
+        </methods>
+      </class> <!-- test.GoogleVirat -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

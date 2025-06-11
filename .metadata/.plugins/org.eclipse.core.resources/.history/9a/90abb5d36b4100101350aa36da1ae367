@@ -1,0 +1,19 @@
+package javaOOS;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.*;
+
+public class GoogleTest {
+	
+	
+	@Test
+	public void HomePageCheck() {
+
+	
+		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.88.204:4444")+"");
+		
+	}
+
+}

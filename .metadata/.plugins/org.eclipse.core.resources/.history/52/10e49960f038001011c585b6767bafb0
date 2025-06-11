@@ -1,0 +1,45 @@
+package anooppandey.pageobjects;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import anooppandey.AbstractComponents.AbstractComponant;
+
+public class MyCart extends AbstractComponant {
+
+	WebDriver driver;
+
+	public MyCart(WebDriver driver) {
+		super(driver);
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+
+	}
+
+	@FindBy(css = ".cartSection h3")
+	List<WebElement> itemsInCart;
+
+	@FindBy(css = ".totalRow button")
+	WebElement checkoutBtn;
+
+	public List<WebElement> getProdInCart() {
+
+		return itemsInCart;
+	}
+
+	public Boolean prodMatchIncart(String productName) {
+
+		Boolean match = getProdInCart().stream().anyMatch(pcart -> pcart.getText().equals(productName));
+		return match;
+		
+	}
+
+	public void goToCheckout() {
+		checkoutBtn.click();
+	}
+}

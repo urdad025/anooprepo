@@ -1,0 +1,14 @@
+package javaOOS;
+
+import org.testng.annotations.*;
+
+public class GoogleTest {
+	
+	
+	@Test
+	public void HomePageCheck() {
+
+	
+	}
+
+}

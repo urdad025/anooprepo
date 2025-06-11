@@ -1,0 +1,31 @@
+package org.sample.excelDataProvider;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.poi.xslf.usermodel.XSLFSheet;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class dataProvide {
+
+	@Test(dataProvider = "driverTest")
+	public void testCaseData(String greet, String comm, int id) {
+		System.out.println(greet + " --> " + comm + " --> " + id);
+	}
+
+	@DataProvider(name = "driverTest")
+	public void getData() throws FileNotFoundException {
+		// Object[][] data = { { "Hello", "Text", 1 }, { "Bye", "Message", 143 }, {
+		// "Solo", "Call", 119 } };
+		// return data;
+
+		FileInputStream fis = new FileInputStream("/Users/dou6339/Documents/ExcelDataSelenium/ExcelDriven.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook();
+		XSSFSheet workSheet = wb.getSheetAt(0);
+		
+
+	}
+}

@@ -1,0 +1,41 @@
+package anooppandey.tests;
+
+import java.io.IOException;
+
+import org.testng.Assert;
+
+import org.testng.annotations.Test;
+
+import anooppandey.TestComponents.BaseTest;
+//import anooppandey.TestComponents.Retry;
+import anooppandey.pageobjects.MyCart;
+import anooppandey.pageobjects.ProductCatalouge;
+import anooppandey.resources.ReadGDProperties;
+
+public class ErrorValidationsTest extends BaseTest {
+
+	@Test //, retryAnalyzer=Retry.class
+	public void loginErrorValidation() throws InterruptedException, IOException {
+
+		landingPage.loginApplication("jackreacher009@gmail.com", "Jack@12345");
+		Assert.assertEquals(landingPage.getErrorMessage().trim(), "Incorrect email or password.");
+
+	}
+
+	@Test(groups= {"ErrorHandling"})
+	public void productErrorValidation() throws InterruptedException, IOException {
+
+		String productName = "ZARA COAT 3";
+
+		ProductCatalouge productCatalouge = landingPage.loginApplication("jackreacher007@gmail.com", "Jack@1234");
+		productCatalouge.addProductToCart(productName);
+		MyCart myCart = productCatalouge.goToCart();
+		
+		String productMatch = ReadGDProperties.getProperties().getProperty("productMatch");
+
+		Boolean match = myCart.prodMatchIncart(productMatch);  // -- need from property file
+		Assert.assertFalse(match);
+
+	}
+
+}

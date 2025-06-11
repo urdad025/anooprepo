@@ -1,0 +1,9 @@
+package anooppandey.stepDefinitions;
+
+import io.cucumber.java.en.Given;
+
+public class StepDifinitionImpl {
+	
+	@Given ("I landed on Ecommerce page")
+
+}
