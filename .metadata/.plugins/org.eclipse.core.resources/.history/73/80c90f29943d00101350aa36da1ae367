@@ -1,7 +1,0 @@
-package anooppandey.stepDefinitions;
-
-public class StepDifinitionImpl {
-	
-	@Given(I landed on Ecommerce page)
-
-}

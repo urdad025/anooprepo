@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;org.sample.apachepoi.dataDriven&apos; to &apos;TestSampleApachePOI&apos;&#x0A;- Original project: &apos;mavensample&apos;&#x0A;- Original element: &apos;org.sample.apachepoi.dataDriven&apos;&#x0A;- Renamed element: &apos;org.sample.apachepoi.TestSampleApachePOI&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;dataDriven&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/test\/java=/ignore_optional_problems=/true=/=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;org.sample.apachepoi{dataDriven.java[dataDriven" matchStrategy="1" name="TestSampleApachePOI" qualified="false" references="true" similarDeclarations="false" stamp="1749160236249" textual="false" version="1.0"/>
-</session>
